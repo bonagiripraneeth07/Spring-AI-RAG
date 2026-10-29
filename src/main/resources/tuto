@@ -1,0 +1,34 @@
+
+1. add the dependencies  like : vector for storing data in vector db
+or else postgres vector db -> 1 . pgvector
+                              2 . docker compose
+                              3.ai-advisor
+                              4.ollama or any other ai model
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-docker-compose</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.ai</groupId>
+			<artifactId>spring-ai-starter-vector-store-pgvector</artifactId>
+		</dependency>
+        <dependency>
+			<groupId>org.springframework.ai</groupId>
+			<artifactId>spring-ai-vector-store</artifactId>
+		</dependency>
+	    <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-advisors-vector-store</artifactId>
+        </dependency>
+
+then configure the app , {  implement VectorStore using pgvectorStore or simplevectorStore etc.. with embedding model   }
+
+then create a class to initialize data .
+
+now define the properties like database , llm model etc in the application properties .
+then define the schema.sql in the resources/init/
+then create and define the compose file
+finally create a controller and implement the chatclient , then create an end point to actually implement the RAG implementation
